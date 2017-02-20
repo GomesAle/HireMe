@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireMe
+namespace RockClient
 {
     class Card
     {
         String cardholderName; //Nome do portador do cartão
-        int number; //Os números que são impressos no cartão, podendo variar entre 12 à 19 dígitos
+        long number; //Os números que são impressos no cartão, podendo variar entre 12 à 19 dígitos
         DateTime expirationDate; //Data de expiração do cartão
         String cardBrand; //Bandeira do cartão
         int password; //Senha do cartão
         string type; //Chip ou tarja magnética
         bool hasPassword; //Se o cartão possui senha.Apenas cartões de tarja magnética podem ter essa propriedade como True
+        float limit; //Limite do cartão
 
-        public Card(String cardholderName, int number, DateTime expirationDate,
-            String cardBrand, int password, string type)
+        public Card(String cardholderName, long number, DateTime expirationDate,
+            String cardBrand, int password, string type, float limit)
         {
             this.cardholderName = cardholderName;
             this.number = number;
@@ -32,6 +33,7 @@ namespace HireMe
             {
                 this.hasPassword = true;
             }
+            this.limit = limit;
         }
     }
 }
