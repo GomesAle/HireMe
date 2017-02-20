@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HireMe
+namespace RockClient
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -27,7 +27,8 @@ namespace HireMe
 
         private void button_Cadastrar_Click(object sender, RoutedEventArgs e)
         {
-
+            TelaCadastro telaCadastro = new TelaCadastro();
+            telaCadastro.Show();
         }
 
         private void button_Logar_Click(object sender, RoutedEventArgs e)
