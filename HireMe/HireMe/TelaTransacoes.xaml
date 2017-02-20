@@ -1,0 +1,14 @@
+﻿<Window x:Class="RockClient.TelaTransacoes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RockClient"
+        mc:Ignorable="d"
+        Title="TelaTransacoes" Height="300" Width="300">
+    <Grid>
+        <Button x:Name="buttonCriarTransacao" Content="Criar Transacao" HorizontalAlignment="Left" Margin="73,40,0,0" VerticalAlignment="Top" Width="149" Height="63" Click="buttonCriarTransacao_Click"/>
+        <Button x:Name="buttonVisualizarTransacoes" Content="Visualizar Transacoes" HorizontalAlignment="Left" Margin="73,133,0,0" VerticalAlignment="Top" Width="149" Height="52" Click="buttonVisualizarTransacoes_Click"/>
+
+    </Grid>
+</Window>
