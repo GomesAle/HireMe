@@ -8,13 +8,13 @@
         Title="CriarTransacao" Height="300" Width="300">
     <Grid>
         <Label x:Name="labelValor" Content="Valor" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="textBoxValor" HorizontalAlignment="Left" Height="23" Margin="133,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxValor" HorizontalAlignment="Left" Height="23" Margin="161,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="labelTipo" Content="Tipo de transação" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxTipo" HorizontalAlignment="Left" Height="23" Margin="134,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="labelCartao" Content="Cartao" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="104"/>
-        <TextBox x:Name="textBoxCartao" HorizontalAlignment="Left" Height="23" Margin="134,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxTipo" HorizontalAlignment="Left" Height="23" Margin="162,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="labelCartao" Content="Numero do cartão" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="textBoxCartao" HorizontalAlignment="Left" Height="23" Margin="162,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="labelParcelas" Content="Parcelas" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="134,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxParcelas" HorizontalAlignment="Left" Height="23" Margin="162,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="buttonCriarTransacao" Content="Criar transação" HorizontalAlignment="Left" Margin="154,212,0,0" VerticalAlignment="Top" Width="113" Click="buttonCriarTransacao_Click"/>
 
     </Grid>

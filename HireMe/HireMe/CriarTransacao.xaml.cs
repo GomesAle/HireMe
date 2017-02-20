@@ -19,14 +19,22 @@ namespace RockClient
     /// </summary>
     public partial class CriarTransacao : Window
     {
+        Controller controller;
         public CriarTransacao()
         {
             InitializeComponent();
+            controller = new Controller();
         }
 
         private void buttonCriarTransacao_Click(object sender, RoutedEventArgs e)
         {
-            Transaction transacao = new Transaction();
+            Card cartao = new Card("", long.Parse(this.textBoxCartao.Text), DateTime.Now, "", 0, "", 0);
+
+            //Buscar cartão
+            string resposta = controller.enviarMensagem(JsonUtil.converterObjetoParaJson(cartao));
+            cartao = JsonUtil.converterJsonParaObjeto<Card>(resposta);
+
+            Transaction transacao = new Transaction(float.Parse(this.textBoxValor.Text), this.textBoxTipo.Text, cartao, int.Parse(this.textBoxParcelas.Text));
         }
     }
 }
