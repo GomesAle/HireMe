@@ -1,0 +1,6 @@
+C:\Users\AleGomes\Source\Repos\microtef-hire-me\HireMe\RockServer\bin\Debug\RockServer.exe.config
+C:\Users\AleGomes\Source\Repos\microtef-hire-me\HireMe\RockServer\bin\Debug\RockServer.exe
+C:\Users\AleGomes\Source\Repos\microtef-hire-me\HireMe\RockServer\bin\Debug\RockServer.pdb
+C:\Users\AleGomes\Source\Repos\microtef-hire-me\HireMe\RockServer\obj\Debug\RockServer.exe
+C:\Users\AleGomes\Source\Repos\microtef-hire-me\HireMe\RockServer\obj\Debug\RockServer.pdb
+C:\Users\AleGomes\Source\Repos\microtef-hire-me\HireMe\RockServer\obj\Debug\RockServer.csprojResolveAssemblyReference.cache

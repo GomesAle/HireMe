@@ -33,7 +33,8 @@ namespace RockClient
 
         private void button_Logar_Click(object sender, RoutedEventArgs e)
         {
-
+            TelaTransacoes telaTransacoes = new TelaTransacoes();
+            telaTransacoes.Show();
         }
     }
 }

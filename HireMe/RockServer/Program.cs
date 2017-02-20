@@ -44,27 +44,32 @@ namespace RockServer
                 Transaction transacao = null;
                 string dataSent = "";
 
-                try
+
+                if (dataReceived.Contains("cardholderName"))
                 {
-                    cartao = (Card)JsonUtil.converterJsonParaObjeto<Card>(dataReceived);
+                    Console.WriteLine("Contem");
+                    cartao = (Card) JsonUtil.converterJsonParaObjeto<Card>(dataReceived);
                     Console.WriteLine(dataReceived);
                     if (cartao.cardholderName == "")
                     {
+                        Console.WriteLine("cardholder é vazio");
                         //Se estiver vazio, é porque está executando uma transacao
                         //Checa se está no banco.
                         //Se estiver, permite a transacao.
-                        
+
                         //Se não estiver retorna erro. Cartão não encontrado.
                         //Se a senha estiver errada. Retorna erro de senha.
                     }
                     else
                     {
+                        dataSent = "volta";
                         //Se não estiver vazio, é porque está criando o cartão.
                         //Salva o cartão no banco
                     }
                 }
-                catch (Exception)
+                else
                 {
+                    Console.WriteLine("Dado enviado que entra no transaction: " + dataSent);
                     transacao = (Transaction) JsonUtil.converterJsonParaObjeto<Transaction>(dataReceived);
                     Console.WriteLine(dataReceived);
                     if (transacao.amount <= cartao.limit)

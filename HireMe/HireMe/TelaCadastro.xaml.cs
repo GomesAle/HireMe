@@ -43,12 +43,12 @@ namespace RockClient
                                     float.Parse(this.textBoxLimite.Text));
 
             //Enviar o cartão criado
-            String cartaoJson  = JsonUtil.converterObjetoParaJson<Card>(cartao);
+            String cartaoJson = JsonUtil.converterObjetoParaJson<Card>(cartao);
             String resposta = controller.enviarMensagem(cartaoJson);
 
-            this.labelNumero.Content = "Cartão criado. O número dele é: "+numero;
+            this.labelNumero.Content = "Cartão criado. O número dele é: " + numero;
         }
 
-        
+
     }
 }

@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,6 +70,9 @@
     <Compile Include="TelaLogin.xaml.cs">
       <DependentUpon>TelaLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TelaTransacoes.xaml.cs">
+      <DependentUpon>TelaTransacoes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs" />
     <Compile Include="VisualizarTransacao.xaml.cs">
       <DependentUpon>VisualizarTransacao.xaml</DependentUpon>
@@ -94,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TelaLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TelaTransacoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

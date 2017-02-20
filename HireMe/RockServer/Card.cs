@@ -12,18 +12,25 @@ namespace RockServer
     {
         [DataMember]
         public String cardholderName; //Nome do portador do cartão
+
         [DataMember]
         public long number; //Os números que são impressos no cartão, podendo variar entre 12 à 19 dígitos
+
         [DataMember]
         public DateTime expirationDate; //Data de expiração do cartão
+
         [DataMember]
         public String cardBrand; //Bandeira do cartão
+
         [DataMember]
         public int password; //Senha do cartão
+
         [DataMember]
         public string type; //Chip ou tarja magnética
+
         [DataMember]
         public bool hasPassword; //Se o cartão possui senha.Apenas cartões de tarja magnética podem ter essa propriedade como True
+
         [DataMember]
         public float limit; //Limite do cartão
 
@@ -44,6 +51,11 @@ namespace RockServer
                 this.hasPassword = true;
             }
             this.limit = limit;
+        }
+
+        public Card()
+        {
+
         }
     }
 }
