@@ -10,24 +10,24 @@ namespace RockServer
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             const int PORT_NO = 5000;
             const string SERVER_IP = "127.0.0.1";
 
-            //---listen at the specified IP and port no.---
-            IPAddress localAdd = IPAddress.Parse(SERVER_IP);
-            TcpListener listener = new TcpListener(localAdd, PORT_NO);
-
-            listener.Start();
-
-            //---incoming client connected---
-            TcpClient client = listener.AcceptTcpClient();
+            
 
             while (true)
             {
+                //---listen at the specified IP and port no.---
+                IPAddress localAdd = IPAddress.Parse(SERVER_IP);
+                TcpListener listener = new TcpListener(localAdd, PORT_NO);
+
+                listener.Start();
+
+                //---incoming client connected---
+                TcpClient client = listener.AcceptTcpClient();
+                Console.WriteLine("Ouvindo");
                 //---get the incoming data through a network stream---
                 NetworkStream nwStream = client.GetStream();
                 byte[] buffer = new byte[client.ReceiveBufferSize];
@@ -38,17 +38,15 @@ namespace RockServer
                 //---convert the data received into a string---
                 string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
 
-
                 //Pegar o json recebido, transformar em objeto e fazer as checagens necessárias.
                 Card cartao = null;
                 Transaction transacao = null;
-                string dataSent = "";
-
+                string dataSent = "xxx";
 
                 if (dataReceived.Contains("cardholderName"))
                 {
                     Console.WriteLine("Contem");
-                    cartao = (Card) JsonUtil.converterJsonParaObjeto<Card>(dataReceived);
+                    cartao = (Card)JsonUtil.converterJsonParaObjeto<Card>(dataReceived);
                     Console.WriteLine(dataReceived);
                     if (cartao.cardholderName == "")
                     {
@@ -69,28 +67,33 @@ namespace RockServer
                 }
                 else
                 {
-                    Console.WriteLine("Dado enviado que entra no transaction: " + dataSent);
-                    transacao = (Transaction) JsonUtil.converterJsonParaObjeto<Transaction>(dataReceived);
-                    Console.WriteLine(dataReceived);
-                    if (transacao.amount <= cartao.limit)
+                    if (dataReceived.Contains("amount"))
                     {
-                        //Transacao efetuada com sucesso.
-                        //Salvar no banco de dados
-                        //Reenviar a mensagem de sucesso
-                    }else
-                    {
-                        //Valor fora do limite
+                        Console.WriteLine("Dado enviado que entra no transaction: " + dataReceived);
+                        transacao = (Transaction)JsonUtil.converterJsonParaObjeto<Transaction>(dataReceived);
+                        Console.WriteLine(dataReceived);
+                        if (transacao.amount <= cartao.limit)
+                        {
+                            //Transacao efetuada com sucesso.
+                            //Salvar no banco de dados
+                            //Reenviar a mensagem de sucesso
+                        }
+                        else
+                        {
+                            //Valor fora do limite
+                        }
                     }
-                }
+                }    
+                    
 
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(dataSent);
                 nwStream.Write(bytesToSend, 0, bytesToSend.Length);
 
-                Console.WriteLine();
+                client.Close();
+                listener.Stop();
             }
 
-            //client.Close();
-            //listener.Stop();
+
         }
     }
 }
