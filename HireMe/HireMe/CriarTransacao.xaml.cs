@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HireMe
+namespace RockClient
 {
     /// <summary>
     /// Interaction logic for CriarTransacao.xaml
@@ -22,6 +22,11 @@ namespace HireMe
         public CriarTransacao()
         {
             InitializeComponent();
+        }
+
+        private void buttonCriarTransacao_Click(object sender, RoutedEventArgs e)
+        {
+            Transaction transacao = new Transaction();
         }
     }
 }
