@@ -1,21 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RockClient
 {
+    [DataContract]
     class Card
     {
-        String cardholderName; //Nome do portador do cartão
-        long number; //Os números que são impressos no cartão, podendo variar entre 12 à 19 dígitos
-        DateTime expirationDate; //Data de expiração do cartão
-        String cardBrand; //Bandeira do cartão
-        int password; //Senha do cartão
-        string type; //Chip ou tarja magnética
-        bool hasPassword; //Se o cartão possui senha.Apenas cartões de tarja magnética podem ter essa propriedade como True
-        float limit; //Limite do cartão
+        [DataMember]
+        public String cardholderName; //Nome do portador do cartão
+
+        [DataMember]
+        public long number; //Os números que são impressos no cartão, podendo variar entre 12 à 19 dígitos
+
+        [DataMember]
+        public DateTime expirationDate; //Data de expiração do cartão
+
+        [DataMember]
+        public String cardBrand; //Bandeira do cartão
+
+        [DataMember]
+        public int password; //Senha do cartão
+
+        [DataMember]
+        public string type; //Chip ou tarja magnética
+
+        [DataMember]
+        public bool hasPassword; //Se o cartão possui senha.Apenas cartões de tarja magnética podem ter essa propriedade como True
+
+        [DataMember]
+        public float limit; //Limite do cartão
 
         public Card(String cardholderName, long number, DateTime expirationDate,
             String cardBrand, int password, string type, float limit)
@@ -35,5 +52,7 @@ namespace RockClient
             }
             this.limit = limit;
         }
+
+        public Card() { }
     }
 }
