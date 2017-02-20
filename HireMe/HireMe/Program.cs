@@ -18,7 +18,7 @@ namespace RockClient
             TcpClient client = new TcpClient(SERVER_IP, PORT_NO);
 
             NetworkStream nwStream = client.GetStream();
-                string textToSend = mensagem;
+                string textToSend = mensagem.Trim();
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textToSend);
 
                 //---send the text---
@@ -28,6 +28,7 @@ namespace RockClient
                 byte[] bytesToRead = new byte[client.ReceiveBufferSize];
                 int bytesRead = nwStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
 
+            
             client.Close();
 
             //Retorna a resposta do servidor
