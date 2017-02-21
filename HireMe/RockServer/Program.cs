@@ -51,7 +51,7 @@ namespace RockServer
                         //Checa se está no banco.
                         //Se estiver, permite a transacao.
                         DataTable tabela = executarSQL("select * from Card where number = " + cartao.number);
-                        Console.WriteLine("select * from Card where number = " + cartao.number);                                                        
+
                         if (tabela.Rows.Count > 0)
                         {
                             //Cartão existe
@@ -59,7 +59,7 @@ namespace RockServer
                             Card c = new Card();
                             c.cardBrand = tabela.Rows[0]["cardBrand"].ToString();
                             c.cardholderName = tabela.Rows[0]["cardholderName"].ToString();
-                            c.expirationDate = new DateTime(int.Parse(tabela.Rows[0]["expirationDate"].ToString().Split('/')[2]), int.Parse(tabela.Rows[0]["expirationDate"].ToString().Split('/')[1]), int.Parse(tabela.Rows[0]["expirationDate"].ToString().Split('/')[0]));
+                            c.expirationDate = DateTime.Parse(tabela.Rows[0]["expirationDate"].ToString());
                             if (tabela.Rows[0]["hasPassword"].ToString() == "0")
                             {
                                 c.hasPassword = false;
@@ -69,7 +69,7 @@ namespace RockServer
                             }
 
                             c.limit = float.Parse(tabela.Rows[0]["limit"].ToString());
-                            c.number = Int32.Parse(tabela.Rows[0]["number"].ToString());
+                            c.number = long.Parse(tabela.Rows[0]["number"].ToString());
                             c.password = int.Parse(tabela.Rows[0]["password"].ToString());
                             c.type = tabela.Rows[0]["type"].ToString();
 
@@ -145,11 +145,11 @@ namespace RockServer
 
             reader = cmd.ExecuteReader();
 
-            sqlConnection.Close();
-
             DataTable tabela = new DataTable();
 
             tabela.Load(reader);
+
+            sqlConnection.Close();
 
             return tabela;
         }

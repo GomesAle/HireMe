@@ -36,6 +36,8 @@ namespace RockClient
             cartao = JsonUtil.converterJsonParaObjeto<Card>(resposta);
 
             Transaction transacao = new Transaction(float.Parse(this.textBoxValor.Text), this.textBoxTipo.Text, cartao, int.Parse(this.textBoxParcelas.Text));
+
+            controller.enviarMensagem(JsonUtil.converterObjetoParaJson(transacao));
         }
     }
 }
