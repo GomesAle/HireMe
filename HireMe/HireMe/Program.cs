@@ -9,33 +9,29 @@ namespace RockClient
 {
     class Program
     {
-        const int PORT_NO = 5000;
-        const string SERVER_IP = "127.0.0.1";
+        int porta = 5000;
+        const string IP = "127.0.0.1";
 
         public String enviar(String mensagem)
         {
-            //---create a TCPClient object at the IP and port no.---
-            TcpClient client = new TcpClient(SERVER_IP, PORT_NO);
+            //Criar o client no ip e porta especificados.
+            TcpClient client = new TcpClient(IP, porta);
 
-            NetworkStream nwStream = client.GetStream();
-                string textToSend = mensagem.Trim();
-                byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textToSend);
+            //Pega o vetor de bytes da mensagem para enviar pela rede.
+            NetworkStream networkStream = client.GetStream();
+            string textToSend = mensagem.Trim();
+            byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textToSend);
 
-                //---send the text---
-                nwStream.Write(bytesToSend, 0, bytesToSend.Length);
+            //manda pela rede
+            networkStream.Write(bytesToSend, 0, bytesToSend.Length);
 
-                //---read back the text---
-                byte[] bytesToRead = new byte[client.ReceiveBufferSize];
-                int bytesRead = nwStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
+            //Pega os dados enviados pelo servidor
+            byte[] bytesToRead = new byte[client.ReceiveBufferSize];
+            int bytesRead = networkStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
 
-            
             client.Close();
 
-            //Retorna a resposta do servidor
             return Encoding.ASCII.GetString(bytesToRead, 0, bytesRead);
-
-           
-            
         }
     }
 }
