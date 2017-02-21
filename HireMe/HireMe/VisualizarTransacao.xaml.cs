@@ -31,7 +31,7 @@ namespace RockClient
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            //Usar como exemplo
             List<Transaction> transacoes = new List<Transaction>();
             Transaction t1 = new Transaction(1000, "Tipo1", new Card(), 1);
             Transaction t2 = new Transaction(1020, "Tipo2", new Card(), 2);
@@ -43,7 +43,7 @@ namespace RockClient
             grid.ItemsSource = transacoes;
             */
 
-            this.dataGrid.ItemsSource = transacoes;
+            this.dataGridTransacoes.ItemsSource = transacoes;
         }
     }
 }

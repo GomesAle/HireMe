@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="VisualizarTransacao" Height="300" Width="300">
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="73,67,0,0" VerticalAlignment="Top" Height="126" Width="157" Loaded="dataGrid_Loaded"/>
+        <DataGrid x:Name="dataGridTransacoes" HorizontalAlignment="Left" Margin="73,67,0,0" VerticalAlignment="Top" Height="126" Width="157" Loaded="dataGrid_Loaded"/>
 
     </Grid>
+
+    
 </Window>

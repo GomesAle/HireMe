@@ -32,6 +32,7 @@ namespace RockClient
 
             //Buscar cartão
             string resposta = controller.enviarMensagem(JsonUtil.converterObjetoParaJson(cartao));
+
             cartao = JsonUtil.converterJsonParaObjeto<Card>(resposta);
 
             Transaction transacao = new Transaction(float.Parse(this.textBoxValor.Text), this.textBoxTipo.Text, cartao, int.Parse(this.textBoxParcelas.Text));
